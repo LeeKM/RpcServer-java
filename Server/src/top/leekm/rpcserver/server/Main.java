@@ -19,7 +19,7 @@ public class Main {
 
         server.start(8088);
 
-        Thread.sleep(10000);
+        Thread.sleep(Integer.MAX_VALUE);
 
         server.stop();
 
