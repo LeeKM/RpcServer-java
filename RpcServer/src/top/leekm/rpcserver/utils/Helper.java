@@ -27,6 +27,21 @@ public class Helper {
         return buffer;
     }
 
+    private final static char[] HEX_TABLE = "0123456789ABCDEF".toCharArray();
+    public static String byteToHexFormate(byte[] buffer) {
+        StringBuffer stringBuffer = new StringBuffer(buffer.length * 2);
+        final int len = buffer.length - 1;
+        for (int i = 0;i <= len;++i) {
+            byte value = buffer[i];
+            stringBuffer.append(HEX_TABLE[(value & 0xF0) >> 4]);
+            stringBuffer.append(HEX_TABLE[value & 0xF]);
+            if (i < len) {
+                stringBuffer.append(':');
+            }
+        }
+        return stringBuffer.toString();
+    }
+
     public static byte[] unWrapBytes(byte[] buffer) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Status status = CH;

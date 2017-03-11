@@ -38,12 +38,12 @@ public class RpcThreadPoolExecutor extends ThreadPoolExecutor {
 
     @Override
     protected void beforeExecute(Thread t, Runnable r) {
-        System.out.println(r + " -before");
+        // TODO: 2017/3/11  
     }
 
     @Override
     protected void afterExecute(Runnable r, Throwable t) {
-        System.out.println(r + " -after");
+        // TODO: 2017/3/11
     }
 
     private static class DefaultThreadFactory implements ThreadFactory {
