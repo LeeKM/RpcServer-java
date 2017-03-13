@@ -17,7 +17,7 @@ public class Main {
 
         server.start(8088);
 
-        Thread.sleep(3600 * 1000);
+        Thread.sleep(24 * 3600 * 1000);
 
         server.stop();
 

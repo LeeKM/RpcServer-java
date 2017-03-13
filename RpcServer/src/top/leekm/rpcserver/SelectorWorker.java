@@ -145,7 +145,6 @@ public class SelectorWorker {
 
         ByteOutputStream rawData = new ByteOutputStream();
         private ByteBuffer buffer = ByteBuffer.allocate(1024);
-        private int responseIndex = 0;
         private IOStatus status = IOStatus.CH;
 
         public SelectContext(SocketChannel channel, SelectionKey key) {
@@ -199,9 +198,7 @@ public class SelectorWorker {
 
         public void onWritable() throws IOException {
             byte[] raw = rawData.getBytes();
-            int endIndex = responseIndex + 1024 < rawData.size() ? responseIndex + 1024 : rawData.size();
-            socketChannel.write(ByteBuffer.wrap(raw, responseIndex, endIndex));
-            responseIndex = endIndex;
+            socketChannel.write(ByteBuffer.wrap(raw, 0, rawData.size()));
             selectionKey.cancel();
         }
 
