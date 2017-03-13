@@ -33,11 +33,11 @@ public class BizDispatcher extends Run implements RpcThreadPoolExecutor.Rejactab
         } else if (request.contains("MD5")) {
             response = handleDigest(request, "MD5");
         } else if (request.contains("SHA1")) {
-            response = handleDigest(request, "SHA1");
+            response = handleDigest(request, "SHA-1");
         } else if (request.contains("SHA256")) {
-            response = handleDigest(request, "SHA256");
+            response = handleDigest(request, "SHA-256");
         } else if (request.contains("SHA512")) {
-            response = handleDigest(request, "SHA512");
+            response = handleDigest(request, "SHA-512");
         } else {
             response = request;
         }
